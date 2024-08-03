@@ -6,7 +6,7 @@ export default function TodoDefaultPhase({deleteTodo,todoTitle,index, toggleEdit
             <input type="checkbox"
             className="peer"
             />
-            <li className="flex-1 peer-checked:line-through ml-4 peer-checked:text-neutral-500"><p>{todoTitle}</p></li>
+            <li className="flex-1 peer-checked:line-through ml-4 peer-checked:text-neutral-500">{todoTitle}</li>
             <button onClick={toggleEditablePhase}
             className="text-green-500 mx-2"
             >

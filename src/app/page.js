@@ -1,15 +1,13 @@
 'use client'
 
 import Todo from "@/components/Todo";
-import clsx from "clsx";
 import { useState } from "react";
-import { FaPlusSquare } from "react-icons/fa";
 
 export default function Home() {
 
   const [todoTitle, setTodoTitle] = useState('');
   const [todos, setTodos] = useState([])
-  const [empty,setEmpty] = useState(false)
+  
 
   // When user interacting with the input field
   const takeInput = (value)=> {
@@ -17,14 +15,9 @@ export default function Home() {
   }
 
   // When clicked the add button
-  const addTodo = (formData)=>{
-    if(formData.get('typingField')){
-      setTodos([...todos, todoTitle])
-      setTodoTitle('')
-      setEmpty(false)
-    }else{
-      setEmpty(true)
-    }
+  const addTodo = ()=>{
+    setTodos([...todos, todoTitle])
+    setTodoTitle('')
   }
 
   const editTodo = (target,value)=>{
@@ -41,20 +34,13 @@ export default function Home() {
     <main className="mx-auto h-screen container w-screen">
       <h1 className="text-xl">TODOs</h1>
       <div className="h-fit w-fit p-10 mx-auto bg-green-100">
-        <form action={addTodo} autoComplete="false">
-          <fieldset className="flex">
-            <input name="typingField" type="text" placeholder="What to do?"
-            onChange={(e)=>{takeInput(e.target.value)}}
-            value={todoTitle}
-            className="peer px-2 border-2 border-r-0 bg-green-50 border-green-300 h-10 rounded-l-lg" autoComplete='false'/>
-            <button
-            className="text-xl bg-green-500 h-10 w-20 p-1 rounded-r-lg text-white hover:bg-green-400"
-            ><FaPlusSquare className="mx-auto"/></button>
-          </fieldset>
-          <small className={clsx(
-            `flex-none text-red-300`,
-            empty? 'visible' : 'invisible'
-          )}>You're try to add an empty todo.</small>
+        <form action={addTodo} className="flex" autoComplete="false">
+          <input name="typingField" type="text" placeholder="Type here..."
+          onChange={(e)=>{takeInput(e.target.value)}}
+          value={todoTitle}
+          className="peer px-2 border-2 bg-green-50 border-green-400 h-10 rounded-l-lg" autoComplete='false' required/>
+          <button className="bg-green-400 h-10 w-20 p-2 rounded-r-lg text-white hover:bg-inherit border-2 border-l-0 border-green-400  hover:text-green-400 align-middle"
+          >Add</button>
         </form>
         <ul role="list" className="mt-10">
           { todos.length > 0 && todos.map((element,index)=>{
