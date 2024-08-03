@@ -5,6 +5,7 @@ import { useState } from "react";
 import { FaPlusSquare } from "react-icons/fa";
 import clsx from "clsx";
 import { MdAdd } from "react-icons/md";
+import { v4 as uuid } from "uuid";
 
 export default function Home() {
 
@@ -62,7 +63,8 @@ export default function Home() {
         </form>
         <ul role="list" className="">
           { todos.length > 0 && todos.map((element,index)=>{
-              return (<Todo key={element} todoTitle={element} index={index} deleteTodo={deleteTodo} editTodo={editTodo}/>)
+            const key = uuid();
+            return (<Todo key={key} todoTitle={element} index={index} deleteTodo={deleteTodo} editTodo={editTodo}/>)
             })
           }
         </ul>
