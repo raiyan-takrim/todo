@@ -20,9 +20,9 @@ export default function Home() {
     setTodoTitle('')
   }
 
-  const editTodo = (target)=>{
-    console.log("edit index of " + target)
-    // todos.splice(target,1,todoTitle)
+  const editTodo = (target,value)=>{
+      todos.splice(target,1,value)
+      setTodos([...todos])
   }
 
   const deleteTodo= (target)=>{
