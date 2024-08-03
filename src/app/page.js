@@ -55,7 +55,7 @@ export default function Home() {
           <small className={clsx(
             `flex-none text-red-300`,
             empty? 'visible' : 'invisible'
-          )}>You're try to add an empty todo.</small>
+          )}>You&apos;re try to add an empty todo.</small>
         </form>
         <ul role="list" className="mt-10">
           { todos.length > 0 && todos.map((element,index)=>{
