@@ -8,7 +8,8 @@ export default function TodoUpdatePhase({editTodo,index,todoTitle,toggleEditable
         setUpdatedTitle(value)
     }
     return (
-    <form className="group text-green-700 border-t-2 last:border-b-2 border-green-100 p-4 flex bg-green-200">
+    <form autoComplete="off"
+    className="group text-green-700 border-t-2 last:border-b-2 border-green-100 p-4 flex bg-green-200">
         <input type="text"
             className="peer flex-1 bg-inherit outline-none text-lg w-full"
             value={updatedTitle}

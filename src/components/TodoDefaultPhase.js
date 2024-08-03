@@ -3,13 +3,13 @@ import { MdClose, MdEdit, MdOutlineCancel, MdOutlineDriveFileRenameOutline } fro
 
 export default function TodoDefaultPhase({deleteTodo,todoTitle,index, toggleEditablePhase}) {
     return(
-        <div className="group border-t-2 px-2 last:border-b-2 border-green-50 py-4 flex bg-green-100">
+        <div className="group my-2 px-2 first:mt-0 last:mb-0 py-4 flex bg-green-100">
             <input type="checkbox"
             className="peer accent-green-300 outline-1 cursor-pointer p-4 w-5"
             />
 
             <li onClick={toggleEditablePhase} 
-            className="cursor-text text-lg text-green-700 flex-1 peer-checked:line-through ml-2 peer-checked:text-green-300/60"><p>{todoTitle}</p></li>
+            className="cursor-text text-lg text-green-600 flex-1 peer-checked:line-through ml-2 peer-checked:text-green-300/60"><p>{todoTitle}</p></li>
             
             <button onClick={toggleEditablePhase}
             className="text-green-300 mx-2 hover:text-green-400 text-2xl">
