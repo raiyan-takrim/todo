@@ -8,9 +8,9 @@ export default function TodoUpdatePhase({editTodo,index,todoTitle,toggleEditable
         setUpdatedTitle(value)
     }
     return (
-    <div className="group border-t-2 last:border-b-2 border-green-200 py-4 flex">
+    <form className="group text-green-700 border-t-2 last:border-b-2 border-green-100 p-4 flex bg-green-200">
         <input type="text"
-            className="peer flex-1"
+            className="peer flex-1 bg-inherit outline-none text-lg w-full"
             value={updatedTitle}
             onChange={(e)=>
                 {
@@ -21,5 +21,5 @@ export default function TodoUpdatePhase({editTodo,index,todoTitle,toggleEditable
             autoFocus='true'
         />
         <UpdateButton editTodo={editTodo} index={index} updatedTitle={updatedTitle} toggleEditablePhase={toggleEditablePhase}/>
-    </div>)
+    </form>)
 }

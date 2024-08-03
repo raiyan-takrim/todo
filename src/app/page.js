@@ -4,6 +4,7 @@ import Todo from "@/components/Todo";
 import { useState } from "react";
 import { FaPlusSquare } from "react-icons/fa";
 import clsx from "clsx";
+import { MdAdd } from "react-icons/md";
 
 export default function Home() {
 
@@ -39,25 +40,24 @@ export default function Home() {
   }
   
   return (
-    <main className="mx-auto h-screen container w-screen">
-      <h1 className="text-xl">TODOs</h1>
-      <div className="h-fit w-fit p-10 mx-auto bg-green-100">
-      <form action={addTodo} autoComplete="false">
+    <main className="mt-10 mx-auto container w-screen max-w-[500px]">
+      <div className="h-fit p-10 mx-auto">
+        <form action={addTodo} autoComplete="false" className="flex-col">
           <fieldset className="flex">
             <input name="typingField" type="text" placeholder="What to do?"
             onChange={(e)=>{takeInput(e.target.value)}}
             value={todoTitle}
-            className="peer px-2 border-2 border-r-0 bg-green-50 border-green-300 h-10 rounded-l-lg" autoComplete='false'/>
+            className="peer w-full flex-auto px-2 border-2 border-r-0 bg-green-50 border-green-400 h-10 rounded-l-lg" autoComplete='false'/>
             <button
-            className="text-xl bg-green-500 h-10 w-20 p-1 rounded-r-lg text-white hover:bg-green-400"
-            ><FaPlusSquare className="mx-auto"/></button>
+            className="text-2xl bg-green-400 h-10 w-16 p-1 rounded-r-lg text-white hover:bg-green-500"
+            ><MdAdd className="mx-auto"/></button>
           </fieldset>
           <small className={clsx(
             `flex-none text-red-300`,
             empty? 'visible' : 'invisible'
           )}>You&apos;re try to add an empty todo.</small>
         </form>
-        <ul role="list" className="mt-10">
+        <ul role="list" className="">
           { todos.length > 0 && todos.map((element,index)=>{
               return (<Todo key={element} todoTitle={element} index={index} deleteTodo={deleteTodo} editTodo={editTodo}/>)
             })
